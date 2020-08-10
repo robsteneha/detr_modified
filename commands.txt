@@ -1,0 +1,9 @@
+python .\main.py --coco_path ..\..\DATASETS\COCO\Small-COCO-10Classes\ --epochs 20 --output_dir logs --resume .\logs\checkpoint.pth 
+
+python main.py --coco_path ~/DATASETS/COCO/Small-COCO-10Classes/ --epochs 50 --output_dir logs --resume logs/checkpoint.pth
+
+
+python -m torch.distributed.launch --nproc_per_node=6  --use_env main.py --coco_path ~/DATASETS/COCO/Small-COCO-10Classes/ --epochs 50 --output_dir logs --resume logs/checkpoint.pth
+
+
+python -m torch.distributed.launch --nproc_per_node=6  --use_env main.py --coco_path ~/DATASETS/COCO/Small-COCO-10Classes/ --epochs 50 --output_dir logs/4/ --dataset_file smallDS --num_classes 10 --resume logs/4/checkpoint.pth
